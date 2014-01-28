@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140123155223) do
+ActiveRecord::Schema.define(version: 20140128182232) do
+
+  create_table "brains", force: true do |t|
+    t.boolean  "tasty"
+    t.integer  "zombie_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "brains", ["zombie_id"], name: "index_brains_on_zombie_id"
 
   create_table "zombies", force: true do |t|
     t.string   "name"
