@@ -15,5 +15,9 @@
   <%= @zombie.age %>
 </p>
 
+<%= link_to "#{@zombie.name}'s tweets", zombie_tweets_path(@zombie) %>
+
+<%= link_to "New Tweet", new_zombie_tweet_path(@zombie) %>
+
 <%= link_to 'Edit', edit_zombie_path(@zombie) %> |
 <%= link_to 'Back', zombies_path %>

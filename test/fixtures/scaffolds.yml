@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tweets: MyString
+  message: MyText
+  zombie_id: 1
+
+two:
+  tweets: MyString
+  message: MyText
+  zombie_id: 1
