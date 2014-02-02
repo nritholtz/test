@@ -15,6 +15,16 @@
   <%= @zombie.age %>
 </p>
 
+<p>
+  <strong>Email:</strong>
+  <%= @zombie.email %>
+</p>
+
+<p>
+  <strong>Rotting:</strong>
+  <%= @zombie.rotting %>
+</p>
+
 <%= link_to "#{@zombie.name}'s tweets", zombie_tweets_path(@zombie) %>
 
 <%= link_to "New Tweet", new_zombie_tweet_path(@zombie) %>

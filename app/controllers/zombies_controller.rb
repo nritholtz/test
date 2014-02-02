@@ -7,6 +7,14 @@ class ZombiesController < ApplicationController
     @zombies = Zombie.all
   end
 
+  def decomp
+    @zombie= Zombie.find(params[:id])
+    if @zombie.rotting == true
+      render json: @zombie.as_json, status: :unprocessable_entity
+    else
+      render json: @zombie.as_json, status: :ok
+    end
+  end
   # GET /zombies/1
   # GET /zombies/1.json
   def show
@@ -34,6 +42,7 @@ class ZombiesController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @zombie.errors, status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -57,7 +66,8 @@ class ZombiesController < ApplicationController
     @zombie.destroy
     respond_to do |format|
       format.html { redirect_to zombies_url }
-      format.json { head :no_content }
+      format.json { head :ok }
+      format.js
     end
   end
 
@@ -69,6 +79,6 @@ class ZombiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def zombie_params
-      params.require(:zombie).permit(:name, :bio, :age)
+      params.require(:zombie).permit(:name, :bio, :age, :email, :rotting)
     end
 end

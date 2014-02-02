@@ -1,0 +1,7 @@
+ZombieMailer#name_change
+
+Greetings <%= @zombie.name %>,
+
+	Your name is now changed to <%= @zombie.name %> <% unless @last_tweet.nil? %> and your last tweet was <%= @last_tweet.message %> <%end%>
+
+Good Luck!

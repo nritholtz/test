@@ -23,6 +23,14 @@
     <%= f.label :age %><br>
     <%= f.number_field :age %>
   </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :rotting %> <br>
+    <%= f.check_box :rotting, checked:false %>     
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

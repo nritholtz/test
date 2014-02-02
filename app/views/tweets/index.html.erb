@@ -5,10 +5,14 @@
   <tbody>
     <% @tweets.each do |tweet| %>
       <tr>
+
         <td><%= tweet.message %></td>
         <td><%= link_to 'Show', [@zombie, tweet] %></td>
         <td><%= link_to 'Edit', edit_zombie_tweet_path(@zombie,tweet) %></td>
         <td><%= link_to 'Destroy', [@zombie,tweet], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <br>
+        <td>----------------------------</td>
+        <br>
       </tr>
       <br>
     <% end %>

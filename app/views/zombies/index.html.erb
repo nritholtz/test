@@ -1,4 +1,4 @@
-<h1>Listing zombies</h1>
+<!--<h1>Listing zombies</h1>
 
 <table>
   <thead>
@@ -6,22 +6,28 @@
       <th>Name</th>
       <th>Bio</th>
       <th>Age</th>
-      <th>Tasty</th>
-      <th></th>
+      <th>Email</th>
+      <th>Rotting</th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @zombies.each do |zombie| %>
-      <tr>
-        <td><%= zombie.name %></td>
-        <td><%= zombie.bio %></td>
-        <td><%= zombie.age %></td>
-        <td><%= link_to 'Show', zombie %></td>
-        <td><%= link_to 'Edit', edit_zombie_path(zombie) %></td>
-        <td><%= link_to 'Destroy', zombie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= div_for zombie do %>
+        <tr>
+          <td><%= zombie.name %></td>
+          <td><%= zombie.bio %></td>
+          <td><%= zombie.age %></td>
+          <td><%= zombie.email %></td>
+          <td><%= zombie.rotting %></td>
+          <div class="actions">
+          <td><%= link_to 'Show', zombie %></td>
+          <td><%= link_to 'Edit', edit_zombie_path(zombie) %></td>
+          <td><%= link_to 'Destroy', zombie, method: :delete%></td>
+          </div>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
@@ -29,3 +35,16 @@
 <br>
 
 <%= link_to 'New Zombie', new_zombie_path %>
+-->
+<div id="zombies">
+<%= render @zombies %>
+</div>
+<div class="field">
+<%= form_for(Zombie.new, remote: true) do |f| %>
+  <%= f.label :name %> <br />
+  <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+  <%= f.submit %>
+  </div>
+  <%end%>
