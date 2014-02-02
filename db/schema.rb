@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20140128182232) do
     t.integer  "age"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.boolean  "rotting",    default: false
   end
 
 end
