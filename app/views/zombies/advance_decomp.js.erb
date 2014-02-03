@@ -1,0 +1,5 @@
+$('#decomp').text('<%= @zombie.rotting%>').effect('highlight',{},3000);
+
+<% if @zombie.rotting == false %>
+	$('div#custom_phase').fadeOut();
+	<% end %>

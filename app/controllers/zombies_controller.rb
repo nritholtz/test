@@ -7,6 +7,16 @@ class ZombiesController < ApplicationController
     @zombies = Zombie.all
   end
 
+  def custom_decomp
+    @zombie= Zombie.find(params[:id])
+    @zombie.rotting= params[:zombie][:rotting]
+    @zombie.save
+    respond_to do |format|
+      format.js
+      format.json {render json: @zombie.to_json(only: :rotting)}
+    end
+  end
+
   def decomp
     @zombie= Zombie.find(params[:id])
     if @zombie.rotting == true

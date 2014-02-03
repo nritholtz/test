@@ -22,8 +22,23 @@
 
 <p>
   <strong>Rotting:</strong>
-  <%= @zombie.rotting %>
+  <span id="decomp"%><%= @zombie.rotting %> </span>
 </p>
+
+<div id="custom_phase">
+<%= form_for @zombie, url:custom_decomp_zombie_path(@zombie), remote: true do |f| %>
+<strong>Custom Phase </strong>
+<%= f.text_field :rotting %>
+<%= f.submit "Set" %>
+<%end%>
+</div>
+
+<div id="custom_phase2">
+<%= form_for @zombie, url: custom_decomp_zombie_path(@zombie) do |f| %>
+  <%= f.text_field :rotting %>
+  <%= f.submit "Set" %>
+  <% end %>
+  </div>
 
 <%= link_to "#{@zombie.name}'s tweets", zombie_tweets_path(@zombie) %>
 
