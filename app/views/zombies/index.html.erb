@@ -39,12 +39,12 @@
 <div id="zombies">
 <%= render @zombies %>
 </div>
+<%= form_for(Zombie.new) do |f| %>
 <div class="field">
-<%= form_for(Zombie.new, remote: true) do |f| %>
   <%= f.label :name %> <br />
   <%= f.text_field :name %>
   </div>
   <div class="actions">
   <%= f.submit %>
   </div>
-  <%end%>
+<%end%>
