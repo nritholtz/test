@@ -2,14 +2,14 @@
 	describe Zombie do
 		let(:ash) {Zombie.new(name: "Ash Clone 1")}
 		it "is invalid without a name" do
-			should_not be_valid
+			should validate_presence_of(:name)
 		end
 
 		it "has a name that matches 'Ash Clone'" do
 			expect(ash.name).to match(/Ash Clone \d/)
 		end
 
-		it 'includes tweets' do
+		it 'includes tweets', tweets: true do
 			tweet1 = Tweet.new(message: 'test')
 			tweet2 = Tweet.new(message: 'test')
 			ash.tweets = [tweet1, tweet2]
@@ -29,9 +29,9 @@
 
 		it {should respond_to(:name)}
 
-		context "who is rotting" do
+		context "who is rotting", rotting: true do
 			subject{Zombie.new(rotting: true)}
-
+			it_behaves_like 'the undead', Zombie.new(rotting: true)
 			its(:rotting){should == true}
 		end
 	end
